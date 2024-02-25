@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS for styling -->
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            font-size: 18px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .form-group select,
+        .form-group input {
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #007bff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        /* Adjust alignment of dropdown options */
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            text-indent: 1px;
+            text-overflow: '';
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1 class="mb-4">Drug Prediction</h1>
+            <form action="/predict" method="post">
+                <div class="form-group">
+                    <label for="age">Age: <i class="fas fa-user"></i></label>
+                    <input type="number" class="form-control" id="age" name="age" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="sex">Sex: <i class="fas fa-venus-mars"></i></label>
+                    <select class="form-control" id="sex" name="sex" required>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="bp">Blood Pressure: <i class="fas fa-heartbeat"></i></label>
+                    <select class="form-control" id="bp" name="bp" required>
+                        <option value="LOW">LOW</option>
+                        <option value="HIGH">HIGH</option>
+                        <option value="NORMAL">NORMAL</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cholesterol">Cholesterol: <i class="fas fa-pills"></i></label>
+                    <select class="form-control" id="cholesterol" name="cholesterol" required>
+                        <option value="LOW">LOW</option>
+                        <option value="HIGH">HIGH</option>
+                        <option value="NORMAL">NORMAL</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="na_to_k">Na_to_K: <i class="fas fa-flask"></i></label>
+                    <input type="number" step="0.01" class="form-control" id="na_to_k" name="na_to_k" min="0" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Predict</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
